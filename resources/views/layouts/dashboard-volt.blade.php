@@ -9,19 +9,19 @@
     <meta name="title" content="GIS Leaflet Project">
 
     <!-- Favicon -->
-    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('img/favicon-32x32.png') }}">
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('img/favicon-16x16.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ volt('img/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ volt('img/favicon-16x16.png') }}">
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="theme-color" content="#ffffff">
 
     <!-- Sweet Alert -->
-    <link type="text/css" href="{{ asset('vendor/sweetalert2/dist/sweetalert2.min.css') }}" rel="stylesheet">
+    <link type="text/css" href="{{ volt('vendor/sweetalert2/dist/sweetalert2.min.css') }}" rel="stylesheet">
 
     <!-- Font Awesome ICON -->
     <script src="https://kit.fontawesome.com/091b217840.js" crossorigin="anonymous"></script>
 
     <!-- Volt CSS -->
-    <link type="text/css" href="{{ asset('css/volt.css') }}" rel="stylesheet">
+    <link type="text/css" href="{{ volt('css/volt.css') }}" rel="stylesheet">
 
     <!-- NOTICE: You can use the _analytics.html partial to include production code specific code & trackers -->
     @yield('styles')
@@ -30,7 +30,7 @@
 <body>
     <nav class="navbar navbar-dark navbar-theme-primary px-4 col-12 d-lg-none">
         <a class="navbar-brand me-lg-5" href="../../index.html">
-            <img class="navbar-brand-dark" src="{{ asset('img/light.svg') }}" alt="Volt logo" />
+            <img class="navbar-brand-dark" src="{{ volt('img/light.svg') }}" alt="Volt logo" />
         </a>
         <div class="d-flex align-items-center">
             <button class="navbar-toggler d-lg-none collapsed" type="button" data-bs-toggle="collapse"
@@ -73,7 +73,7 @@
                 <li class="nav-item">
                     <a href="/" class="nav-link d-flex align-items-center">
                         <span class="sidebar-icon">
-                            <img src="{{ asset('img/light.svg') }}" height="20" width="20" alt="SIG Logo">
+                            <img src="{{ volt('img/light.svg') }}" height="20" width="20" alt="SIG Logo">
                         </span>
                         <span class="mt-1 ms-1 sidebar-text">GIS Location</span>
                     </a>
@@ -226,15 +226,15 @@
     </main>
 
     <!-- Core -->
-    <script src="{{ asset('vendor/@popperjs/core/dist/umd/popper.min.js') }}"></script>
-    <script src="{{ asset('vendor/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+    <script src="{{ volt('vendor/@popperjs/core/dist/umd/popper.min.js') }}"></script>
+    <script src="{{ volt('vendor/bootstrap/dist/js/bootstrap.min.js') }}"></script>
 
     <!-- Sweet Alerts 2 -->
-    <script src="{{ asset('vendor/sweetalert2/dist/sweetalert2.all.min.js') }}"></script>
+    <script src="{{ volt('vendor/sweetalert2/dist/sweetalert2.all.min.js') }}"></script>
 
     @stack('scripts')
     <!-- Volt JS -->
-    <script src="{{ asset('js/volt.js') }}"></script>
+    <script src="{{ volt('js/volt.js') }}"></script>
 
 
 </body>
