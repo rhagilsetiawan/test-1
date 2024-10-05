@@ -26,15 +26,18 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        // Force all URLs to be HTTPS
-        URL::forceScheme('https');
+        // Check if the APP_ENV is set to production
+        if (config('app.env') === 'production') {
+            // Force all URLs to be HTTPS
+            URL::forceScheme('https');
+        }
 
         Paginator::useBootstrapFive();
 
         Blade::directive('convert', function ($money) {
             return "<?php echo number_format($money, 2); ?>";
         });
-        
+
         view()->composer('*', function ($view) {
             if (Auth::check()) {
                 $user = User::find(Auth::user()->id);
