@@ -42,12 +42,14 @@ class AppServiceProvider extends ServiceProvider
             if (Auth::check()) {
                 $user = User::find(Auth::user()->id);
                 View::share([
+                    'userId' => $user->id,
                     'userGlobal' => $user,
                     'userImage' => $user->getImage(),
                 ]);
             } else {
                 $user = User::find(1);
                 View::share([
+                    'userId' => $user->id,
                     'userGlobal' => $user,
                     'userImage' => $user->getImage(),
                 ]);

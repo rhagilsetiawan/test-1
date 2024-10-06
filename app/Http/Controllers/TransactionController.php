@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Transaction;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class TransactionController extends Controller
@@ -11,7 +13,7 @@ class TransactionController extends Controller
      */
     public function index()
     {
-        //
+        return redirect()->route('shops.index');
     }
 
     /**
@@ -19,15 +21,30 @@ class TransactionController extends Controller
      */
     public function create()
     {
-        //
+        return redirect()->route('shops.create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request, User $user)
     {
-        //
+        $this->validate($request, [
+            'prod_id' => 'required',
+            'shop_id' => 'required',
+            'price' => 'required',
+        ]);
+
+        // Update jika data ada, Create jika tidak ada
+        $transaction = Transaction::updateOrCreate(
+            ['prod_id' => $request->prod_id, 'shop_id' => $request->shop_id],
+            ['price' => $request->price, 'user_id' => $user->id]);
+        
+        if ($transaction) {
+            return redirect()->route('transaction.index')->with('success', 'Transaction Created 😍!');
+        } else {
+            return redirect()->route('transaction.index')->with('error', 'Transaction Failed 😭!');
+        }
     }
 
     /**
@@ -35,7 +52,7 @@ class TransactionController extends Controller
      */
     public function show(string $id)
     {
-        //
+        // tidak dipakai
     }
 
     /**
@@ -43,7 +60,7 @@ class TransactionController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        // tidak dipakai, langsung dari create
     }
 
     /**
@@ -51,7 +68,7 @@ class TransactionController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        // tidak dipakai
     }
 
     /**
@@ -59,6 +76,11 @@ class TransactionController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        if (Transaction::destroy($id)) {
+            return redirect()->route('transaction.index')->with('success', 'Transaction Destroyed 🤯!');
+        } else {
+            return redirect()->route('transaction.index')->with('error', 'Transaction Failed to Destroy 😭!');
+        }
+        ;
     }
 }

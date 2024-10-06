@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id(); // 'id' column with auto-increment
             $table->char('prod_id', 13); // 'prod_id' column (char with length 13)
             $table->unsignedBigInteger('shop_id'); // 'shop_id' column (foreign key to shops)
-            $table->integer('price')->nullable(); // 'price' column (nullable)
+            $table->integer('price'); // 'price' column (nullable)
             $table->unsignedBigInteger('user_id'); // 'user_id' column (foreign key to users)
             $table->timestamps(); // 'created_at' and 'updated_at' columns
 
