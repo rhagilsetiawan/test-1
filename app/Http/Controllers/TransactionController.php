@@ -13,7 +13,7 @@ class TransactionController extends Controller
      */
     public function index()
     {
-        return redirect()->route('shops.index');
+        return view('transactions.index');
     }
 
     /**
@@ -21,7 +21,7 @@ class TransactionController extends Controller
      */
     public function create()
     {
-        return redirect()->route('shops.create');
+        return redirect()->route('transactions.create');
     }
 
     /**
@@ -41,9 +41,9 @@ class TransactionController extends Controller
             ['price' => $request->price, 'user_id' => $user->id]);
         
         if ($transaction) {
-            return redirect()->route('transaction.index')->with('success', 'Transaction Created 😍!');
+            return redirect()->route('transactions.index')->with('success', 'Transaction Created 😍!');
         } else {
-            return redirect()->route('transaction.index')->with('error', 'Transaction Failed 😭!');
+            return redirect()->route('transactions.index')->with('error', 'Transaction Failed 😭!');
         }
     }
 
@@ -77,9 +77,9 @@ class TransactionController extends Controller
     public function destroy(string $id)
     {
         if (Transaction::destroy($id)) {
-            return redirect()->route('transaction.index')->with('success', 'Transaction Destroyed 🤯!');
+            return redirect()->route('transactions.index')->with('success', 'Transaction Destroyed 🤯!');
         } else {
-            return redirect()->route('transaction.index')->with('error', 'Transaction Failed to Destroy 😭!');
+            return redirect()->route('transactions.index')->with('error', 'Transaction Failed to Destroy 😭!');
         }
         ;
     }

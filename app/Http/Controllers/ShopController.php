@@ -20,7 +20,7 @@ class ShopController extends Controller
      */
     public function create()
     {
-        return view('products.create');
+        return view('shops.create');
     }
 
     /**

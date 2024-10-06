@@ -13,8 +13,8 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-header d-flex justify-content-between">
-                        <div>Daftar tempat</div>
-                        <a href="{{ route('transactions.create') }}" class="btn btn-primary btn-sm float-right"><i class="fa-solid fa-plus"></i> Tambah Tempat</a>
+                        <div>Daftar Transaksi</div>
+                        <a href="{{ route('transactions.create') }}" class="btn btn-primary btn-sm float-right"><i class="fa-solid fa-plus"></i> Tambah Transaksi</a>
                     </div>
                     <div class="card-body">
                         @if (session('success'))
@@ -31,10 +31,10 @@
                         <table class="table table-hovered" id="tableProducts">
                             <thead>
                                 <tr>
-                                    <th>No</th>
-                                    <th>Barcode</th>
-                                    <th>Name</th>
-                                    <th>Category</th>
+                                    <th>Produk</th>
+                                    <th>Toko</th>
+                                    <th>Harga</th>
+                                    <th>Aksi</th>
                                 </tr>
                             </thead>
                             <tbody></tbody>
