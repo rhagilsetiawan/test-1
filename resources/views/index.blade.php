@@ -55,6 +55,9 @@
     <script>
         var productID = document.getElementById('cameraValue').value;
         console.log("product id: ",productID);
+
+        var productRoute = `{{ route('data.search-loc', ['id' => 'PLACEHOLDER']) }}`;
+
         let html5QrcodeScanner = new Html5QrcodeScanner(
             "reader", {
                 fps: 10,
@@ -127,7 +130,8 @@
 
         function fetchShops(map, center) {
             var radius = circle.getRadius();
-            axios.get(`{{ route('data.search-loc') }}/${productID}`)
+            var url = productRoute.replace('PLACEHOLDER', productID); // Ganti placeholder dengan productID
+            axios.get(url)
                 .then(function(response) {
                     var geojsonData = {
                         "type": "FeatureCollection",
