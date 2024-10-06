@@ -11,19 +11,10 @@ use App\Models\Transaction;
 class DataController extends Controller
 {
     //untuk searching product by location
-    public function index($productID = null)
+    public function index($productID)
     {
 
         try {
-            // $product = DB::table('products')->find($productsID);
-
-            // Periksa jika $productID tidak diisi
-            if (is_null($productID)) {
-                return response()->json([
-                    'error' => 'Product ID is required'
-                ], 400); // Bad Request
-            }
-
             // Query to get the data
             $places = DB::table('transactions')
                 ->join('products', 'transactions.prod_id', '=', 'products.id')
@@ -105,7 +96,7 @@ class DataController extends Controller
     }
 
 
-    
+
     public function transactionsBig()
     {
         $transactions = Transaction::all();

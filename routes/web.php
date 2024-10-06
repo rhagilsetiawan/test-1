@@ -12,7 +12,6 @@ Auth::routes();
 
 Route::group(['middleware' => ['auth']], function () {
     Route::get('/', [HomeController::class, 'index'])->name('dashboard');
-    // Route::get('/jarak', [mapController::class, 'jarak'])->name('jarak');
     Route::resource('products', ProductController::class);
     Route::resource('shops', ShopController::class);
     Route::resource('transactions', TransactionController::class);
