@@ -17,19 +17,16 @@ class DatabaseSeeder extends Seeder
         \App\Models\Product::create([
             'id' => '1234567890123',
             'name' => 'New Orleans ml',
-            'category' => 'Parfum',
         ]);
 
         \App\Models\Product::create([
             'id' => '1234567890124',
             'name' => 'Aqua 100ml',
-            'category' => 'minuman',
         ]);
 
         \App\Models\Product::create([
             'id' => '2234567890121',
             'name' => 'Kit kat',
-            'category' => 'snack',
         ]);
 
 

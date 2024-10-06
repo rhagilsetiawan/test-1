@@ -29,15 +29,13 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'id' => 'required|max:13|min:13|unique:products',
+            'id' => 'required|max:13|unique:products',
             'name' => 'required',
-            'category' => 'required',
         ]);
 
         $product = Product::create([
             'id' => $request->id,
             'name' => $request->name,
-            'category' => $request->category,
         ]);
 
         if($product) {
@@ -67,13 +65,11 @@ class ProductController extends Controller
         $this->validate($request, [
             'id' => 'required|max:13|min:13',
             'name' => 'required',
-            'category' => 'required',
         ]);
 
         $product = Product::find($id)->update([
             'id' => $request->id,
             'name' => $request->name,
-            'category' => $request->category
         ]);
 
         if($product) {

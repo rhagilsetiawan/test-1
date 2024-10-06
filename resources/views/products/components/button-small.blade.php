@@ -1,8 +1,5 @@
 
 <div>
-    <a href="{{ route('products.show', $model) }}" class="btn btn-info btn-sm">
-        <i class="fa-solid fa-circle-info"></i>
-    </a> |
     <a id='ed' href="{{ route('products.edit', $model) }}" class="btn btn-warning btn-sm">
         <i class="fa-solid fa-pen-to-square"></i>
     </a> |

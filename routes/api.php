@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\DataController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -14,7 +15,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
+Route::get('data/product-big', [DataController::class, 'productsBig'])->name('data.product-big');
+Route::get('data/product-small', [DataController::class, 'productsSmall'])->name('data.product-small');
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();

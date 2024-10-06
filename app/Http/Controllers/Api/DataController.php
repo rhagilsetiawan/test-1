@@ -60,23 +60,23 @@ class DataController extends Controller
         }
     }
     
-    // public function productsBig()
-    // {
-    //     $products = Product::latest()->get();
-    //     return datatables()->of($products)
-    //         ->addColumn('action', 'places.button-big')
-    //         ->addIndexColumn()
-    //         ->rawColumns(['action'])
-    //         ->toJson();
-    // }
+    public function productsBig()
+    {
+        $products = Product::latest()->get();
+        return datatables()->of($products)
+            ->addColumn('action', 'products.components.button-big')
+            ->addIndexColumn()
+            ->rawColumns(['action'])
+            ->toJson();
+    }
 
-    // public function productsSmall()
-    // {
-    //     $products = Product::latest()->get();
-    //     return datatables()->of($products)
-    //         ->addColumn('action', 'places.button-small')
-    //         ->addIndexColumn()
-    //         ->rawColumns(['action'])
-    //         ->toJson();
-    // }
+    public function productsSmall()
+    {
+        $products = Product::latest()->get();
+        return datatables()->of($products)
+            ->addColumn('action', 'products.components.button-small')
+            ->addIndexColumn()
+            ->rawColumns(['action'])
+            ->toJson();
+    }
 }

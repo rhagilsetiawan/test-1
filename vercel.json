@@ -20,6 +20,10 @@
       "dest": "/public/js/"
     },
     {
+      "src": "/sweetalert2/(.*)",
+      "dest": "/public/sweetalert2/"
+    },
+    {
       "src": "/vendor/(.*)",
       "dest": "/public/vendor/"
     },

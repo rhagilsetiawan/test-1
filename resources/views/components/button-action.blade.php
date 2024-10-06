@@ -1,6 +1,4 @@
-<div>Ini adalah button action</div>
-
-<script src="{{ asset('/sweetalert2/dist/sweetalert2.all.min.js') }}"></script>
+<script src="{{ asset('sweetalert2/dist/sweetalert2.all.min.js') }}"></script>
 <script>
     // Function to get the width of the browser window
     function getWindowWidth() {

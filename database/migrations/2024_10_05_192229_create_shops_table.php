@@ -17,7 +17,6 @@ return new class extends Migration
             $table->string('address', 50)->nullable();  // Kolom address varchar(50) yang boleh null
             $table->double('lat')->nullable();  // Kolom latitude double yang boleh null
             $table->double('lng')->nullable();  // Kolom longitude double yang boleh null
-            $table->timestamps();  // timestamps untuk created_at dan updated_at
         });
     }
 

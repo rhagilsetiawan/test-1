@@ -15,7 +15,7 @@
     <meta name="theme-color" content="#ffffff">
 
     <!-- Sweet Alert -->
-    <link type="text/css" href="{{ asset('vendor/sweetalert2/dist/sweetalert2.min.css') }}" rel="stylesheet">
+    <link type="text/css" href="{{ asset('sweetalert2/dist/sweetalert2.min.css') }}" rel="stylesheet">
 
     <!-- Font Awesome ICON -->
     <script src="https://kit.fontawesome.com/091b217840.js" crossorigin="anonymous"></script>
@@ -114,8 +114,6 @@
                 </li>
 
                 <li role="separator" class="dropdown-divider mt-4 mb-3 border-gray-700"></li>
-
-
             </ul>
             <!--HEADER NAV-->
 
@@ -201,7 +199,7 @@
     <script src="{{ asset('vendor/bootstrap/dist/js/bootstrap.min.js') }}"></script>
 
     <!-- Sweet Alerts 2 -->
-    <script src="{{ asset('vendor/sweetalert2/dist/sweetalert2.all.min.js') }}"></script>
+    <script src="{{ asset('sweetalert2/dist/sweetalert2.all.min.js') }}"></script>
 
     @stack('scripts')
     <!-- Volt JS -->
