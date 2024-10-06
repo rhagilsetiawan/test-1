@@ -28,8 +28,12 @@
       "dest": "/public/vendor/"
     },
     {
+      "src": "/api/(.*)",
+      "dest": "/api/index.php?$1"
+    },
+    {
       "src": "/(.*)",
-      "dest": "/api/index.php"
+      "dest": "/api/index.php?$1"
     }
   ],
   "env": {
