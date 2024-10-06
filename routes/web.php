@@ -10,25 +10,21 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
-// Route::get('/products/data-big', [DataController::class, 'productsBig'])->name('products.databig'); // DataTableBig
-// Route::get('/products/data-small', [DataController::class, 'productsSmall'])->name('products.datasmall'); // DataTableSmall
-Route::get('/products/api/{id?}', [DataController::class, 'index'])->name('products.api'); // dashboard
-
-// Route::get('/', [HomeController::class, 'index'])->name('dashboard');
-// Route::resource('products', ProductController::class);
-// Route::resource('shops', ShopController::class);
-// Route::resource('transactions', TransactionController::class);
-
-// Route::get('/jarak', [HomeController::class, 'jarak'])->name('jarak');
-// Route::resource('products', PlaceController::class);
-// Route::resource('shops', PlaceController::class);
-// Route::resource('transactions', PlaceController::class);
-
 Route::group(['middleware' => ['auth']], function () {
     Route::get('/', [HomeController::class, 'index'])->name('dashboard');
     // Route::get('/jarak', [mapController::class, 'jarak'])->name('jarak');
     Route::resource('products', ProductController::class);
     Route::resource('shops', ShopController::class);
     Route::resource('transactions', TransactionController::class);
-});
 
+
+    // 2 tipe meawikili tiap button
+    Route::get('data/product-big', [DataController::class, 'productsBig'])->name('data.product-big');
+    Route::get('data/product-small', [DataController::class, 'productsSmall'])->name('data.product-small');
+
+    Route::get('data/shop-big', [DataController::class, 'shopsBig'])->name('data.shop-big');
+    Route::get('data/shop-small', [DataController::class, 'shopsSmall'])->name('data.shop-small');
+
+    Route::get('data/transaction-big', [DataController::class, 'transactionsBig'])->name('data.transaction-big');
+    Route::get('data/transaction-small', [DataController::class, 'transactionsSmall'])->name('data.transaction-small');
+});

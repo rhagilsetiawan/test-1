@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Api;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use App\Models\Product;
+use App\Models\Shop;
+use App\Models\Transaction;
 
 class DataController extends Controller
 {
@@ -75,6 +77,50 @@ class DataController extends Controller
         $products = Product::latest()->get();
         return datatables()->of($products)
             ->addColumn('action', 'products.components.button-small')
+            ->addIndexColumn()
+            ->rawColumns(['action'])
+            ->toJson();
+    }
+
+
+
+    public function shopsBig()
+    {
+        $shops = Shop::all();
+        return datatables()->of($shops)
+            ->addColumn('action', 'shops.components.button-big')
+            ->addIndexColumn()
+            ->rawColumns(['action'])
+            ->toJson();
+    }
+
+    public function shopsSmall()
+    {
+        $shops = Shop::all();
+        return datatables()->of($shops)
+            ->addColumn('action', 'shops.components.button-small')
+            ->addIndexColumn()
+            ->rawColumns(['action'])
+            ->toJson();
+    }
+
+
+    
+    public function transactionsBig()
+    {
+        $transactions = Transaction::all();
+        return datatables()->of($transactions)
+            ->addColumn('action', 'shops.components.button-big')
+            ->addIndexColumn()
+            ->rawColumns(['action'])
+            ->toJson();
+    }
+
+    public function transactionsSmall()
+    {
+        $transactions = Transaction::all();
+        return datatables()->of($transactions)
+            ->addColumn('action', 'shops.components.button-small')
             ->addIndexColumn()
             ->rawColumns(['action'])
             ->toJson();
