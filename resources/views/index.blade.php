@@ -54,7 +54,7 @@
 
     <script>
         var productID = document.getElementById('cameraValue').value;
-        console.log("product id: ",productID);
+        console.log("product id: ", productID);
 
         var productRoute = `{{ route('data.search-loc', ['id' => 'PLACEHOLDER']) }}`;
 
@@ -80,6 +80,7 @@
 
         var userLocation;
         var circle;
+        var geoJsonLayer;
 
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition((position) => {
@@ -129,11 +130,14 @@
         }
 
         function fetchShops(map, center) {
+            if(geoJsonLayer) {
+                map.removeLayer(geoJsonLayer); // Remove the GeoJSON layer from the map if exists
+            }
             var radius = circle.getRadius();
             var url = productRoute.replace('PLACEHOLDER', productID); // Ganti placeholder dengan productID
             axios.get(url)
                 .then(function(response) {
-                    var geojsonData = {
+                    let geojsonData = {
                         "type": "FeatureCollection",
                         "features": []
                     };
@@ -143,12 +147,14 @@
                         console.log("cek tiap features: ", shop);
                         var distance = calculateDistance(center, [shop.lat, shop.lng]);
                         if (distance <= radius) {
-                            console.log("distance <= radius =", distance," <= ", radius)
+                            console.log("distance <= radius =", distance, " <= ", radius)
                             geojsonData.features.push({
                                 "type": "Feature",
                                 "geometry": {
                                     "type": "Point",
-                                    "coordinates": [shop.lng, shop.lat] //lokasi nya memang dibuat terbalik
+                                    "coordinates": [shop.lng, shop
+                                        .lat
+                                    ] //lokasi nya memang dibuat terbalik
                                 },
                                 "properties": {
                                     "name": shop.shop_name,
@@ -164,7 +170,7 @@
                     console.log("geojsonData: ", geojsonData);
 
                     // Add GeoJSON data to map
-                    L.geoJSON(geojsonData, {
+                    geoJsonLayer = L.geoJSON(geojsonData, {
                         style: function(feature) {
                             return {
                                 color: feature.properties.color
@@ -178,7 +184,7 @@
                     }).addTo(map);
                 })
                 .catch(function(error) {
-                    console.log("waduh!", error);
+                    console.log("error try fetch!", error);
                 });
         }
 

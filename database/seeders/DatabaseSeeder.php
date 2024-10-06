@@ -15,17 +15,20 @@ class DatabaseSeeder extends Seeder
         // \App\Models\User::factory(10)->create();
 
         \App\Models\Product::create([
-            'id' => '1234567890123',
+            'id' => 1,
+            'code' => '1234567890123',
             'name' => 'New Orleans ml',
         ]);
 
         \App\Models\Product::create([
-            'id' => '1234567890124',
+            'id' => 2,
+            'code' => '1234567890124',
             'name' => 'Aqua 100ml',
         ]);
 
         \App\Models\Product::create([
-            'id' => '2234567890121',
+            'id' => 3,
+            'code' => '2234567890121',
             'name' => 'Kit kat',
         ]);
 
@@ -62,21 +65,21 @@ class DatabaseSeeder extends Seeder
         ]);
 
         \App\Models\Transaction::create([
-            'prod_id' => '1234567890123',
+            'prod_id' => 1,
             'shop_id' => 1,
             'price' => 3000,
             'user_id' => 1
         ]);
 
         \App\Models\Transaction::create([
-            'prod_id' => '1234567890123',
+            'prod_id' => 1,
             'shop_id' => 2,
             'price' => 2000,
             'user_id' => 1
         ]);
 
         \App\Models\Transaction::create([
-            'prod_id' => '1234567890124',
+            'prod_id' => 2,
             'shop_id' => 2,
             'price' => 2000,
             'user_id' => 1

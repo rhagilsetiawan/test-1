@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
+use App\Models\Shop;
 use App\Models\Transaction;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class TransactionController extends Controller
 {
@@ -21,54 +24,37 @@ class TransactionController extends Controller
      */
     public function create()
     {
-        return redirect()->route('transactions.create');
+        $products = Product::all();
+        $shops = Shop::all();
+        return view('transactions.create', ['products' => $products, 'shops' => $shops]);
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request, User $user)
+    public function store(Request $request)
     {
+        // Validate the request data
         $this->validate($request, [
-            'prod_id' => 'required',
-            'shop_id' => 'required',
-            'price' => 'required',
+            'prod_id' => 'required|numeric',
+            'shop_id' => 'required|numeric',
+            'price' => 'required|numeric',
         ]);
 
-        // Update jika data ada, Create jika tidak ada
+        // Get the authenticated user
+        $user = Auth::user();
+
+        // Update if the record exists, create if it doesn't
         $transaction = Transaction::updateOrCreate(
             ['prod_id' => $request->prod_id, 'shop_id' => $request->shop_id],
-            ['price' => $request->price, 'user_id' => $user->id]);
-        
+            ['price' => $request->price, 'user_id' => $user->id]
+        );
+
         if ($transaction) {
             return redirect()->route('transactions.index')->with('success', 'Transaction Created 😍!');
         } else {
-            return redirect()->route('transactions.index')->with('error', 'Transaction Failed 😭!');
+            return redirect()->back()->with('error', 'Creation Failed 😭!');
         }
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        // tidak dipakai
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        // tidak dipakai, langsung dari create
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        // tidak dipakai
     }
 
     /**
@@ -76,11 +62,6 @@ class TransactionController extends Controller
      */
     public function destroy(string $id)
     {
-        if (Transaction::destroy($id)) {
-            return redirect()->route('transactions.index')->with('success', 'Transaction Destroyed 🤯!');
-        } else {
-            return redirect()->route('transactions.index')->with('error', 'Transaction Failed to Destroy 😭!');
-        }
-        ;
+        return redirect()->route('transactions.index')->with('success', 'Transaction Destroyed 🤯!');
     }
 }

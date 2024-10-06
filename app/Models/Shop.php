@@ -12,11 +12,4 @@ class Shop extends Model
      * @var array
      */
     protected $fillable = ['name','address','lat','lng'];
-
-    /**
-     * Indicates if the model should be timestamped.
-     *
-     * @var bool
-     */
-    public $timestamps = false;
 }

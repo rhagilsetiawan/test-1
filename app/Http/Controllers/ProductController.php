@@ -29,28 +29,20 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'id' => 'required|max:13|unique:products',
+            'code' => 'required|max:13|unique:products',
             'name' => 'required',
         ]);
 
         $product = Product::create([
-            'id' => $request->id,
+            'code' => $request->code,
             'name' => $request->name,
         ]);
 
-        if($product) {
+        if ($product) {
             return redirect()->route('products.index')->with('success', 'Product Created 😍!');
         } else {
-            return redirect()->route('products.index')->with('error', 'Failed to Create Product 😭!');
+            return redirect()->back()->with('error', 'Failed to Create Product 😭!');
         }
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        // dibiarkan saja supaya tidak terjadi error pada Route::resource
     }
 
     public function edit(string $id)
@@ -63,19 +55,39 @@ class ProductController extends Controller
     public function update(Request $request, string $id)
     {
         $this->validate($request, [
-            'id' => 'required|max:13|min:13',
-            'name' => 'required',
+            'new_code' => 'required|unique:products,id',
+            'new_name' => 'required',
         ]);
 
-        $product = Product::find($id)->update([
-            'id' => $request->id,
+        // Find the product by the current ID
+        $product = Product::find($id);
+
+        // Check if the product exists
+        if (!$product) {
+            return redirect()->back()->withErrors('Product not found.');
+        }
+
+        try {
+            // Update the primary key (id)
+            $product->id = $request->new_id;
+            $product->id = $request->new_name;
+            
+            // Save the product with the new ID
+            $product->save();
+
+        } catch (\Exception $e) {
+            // If something goes wrong, catch the error and handle it
+            return redirect()->back()->withErrors('Error updating product ID: ' . $e->getMessage());
+        }
+
+        $product = Product::find($request->id)->update([
             'name' => $request->name,
         ]);
 
-        if($product) {
+        if ($product) {
             return redirect()->route('products.index')->with('success', 'Product Updated 😍!');
         } else {
-            return redirect()->route('products.index')->with('error', 'Failed to Update Product 😭!');
+            return redirect()->back()->with('error', 'Failed to Update Product 😭!');
         }
     }
 

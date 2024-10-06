@@ -12,8 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('products', function (Blueprint $table) {
-            $table->string('id', 13)->default('')->primary();
+            $table->id();
+            $table->string('code', 13)->default('');
             $table->string('name', 50);
+            $table->timestamps(); // 'created_at' and 'updated_at' columns
         });
     }
 

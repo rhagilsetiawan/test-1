@@ -31,7 +31,7 @@ Route::controller(DataController::class)->group(function () {
 
 Route::group(['middleware' => ['auth']], function () {
     Route::get('/', [HomeController::class, 'index'])->name('dashboard');
-    Route::resource('products', ProductController::class);
-    Route::resource('shops', ShopController::class);
-    Route::resource('transactions', TransactionController::class);
+    Route::resource('products', ProductController::class)->except('show');
+    Route::resource('shops', ShopController::class)->except('show');
+    Route::resource('transactions', TransactionController::class)->except('show', 'edit', 'update');
 });

@@ -12,7 +12,7 @@
             </div>
             <div class="col-md-6 mb-2">
                 <div class="alert alert-success d-none" id="berhasil" role="alert">
-                    Berhasil di scan 🤩 <span class="badge badge-lg bg-success" id="bar"></span>
+                    Berhasil di scan 🤩 <span class="badge badge-lg bg-success" id="code"></span>
                 </div>
                 <div id="reader" class="mb-2"></div>
             </div>
@@ -23,11 +23,11 @@
                             @csrf
                             <div class="form-group">
                                 <div class="form-row mb-2">
-                                    <label for="id" class="mb-1">Barcode</label>
-                                    <input type="text" name="id" id="id"
-                                        class="form-control @error('id') is-invalid @enderror" placeholder="digit di barcode..."
-                                        value="{{ old('id') }}">
-                                    @error('id')
+                                    <label for="new_code" class="mb-1">Code</label>
+                                    <input type="text" name="code" id="new_code"
+                                        class="form-control @error('code') is-invalid @enderror" placeholder="digit di barcode..."
+                                        value="{{ old('code') }}">
+                                    @error('code')
                                         <span class="invalid-feedback">
                                             <strong>{{ $message }}</strong>
                                         </span>
@@ -60,9 +60,9 @@
     <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
 
     <script>
-        var productID = document.getElementById('id');
+        var productID = document.getElementById('new_code');
         var berhasil = document.getElementById('berhasil');
-        var bar = document.getElementById('bar');
+        var code = document.getElementById('code');
         let reader = document.getElementById('reader');
 
         console.log("product id: ", productID);
@@ -79,7 +79,7 @@
         html5QrcodeScanner.render((decodedText, decodedResult) => {
             productID.value = decodedText;
             berhasil.classList.remove('d-none');
-            bar.innerText = decodedText;
+            code.innerText = decodedText;
             reader.classList.add('d-none');
         }, (error) => {
             console.warn(`Code scan error = ${error}`);

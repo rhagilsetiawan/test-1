@@ -28,9 +28,10 @@
                                 {{ session('error') }}
                             </div>
                         @endif
-                        <table class="table table-hovered" id="tableProducts">
+                        <table class="table table-hovered" id="tableTransactions">
                             <thead>
                                 <tr>
+                                    <th>Code</th>
                                     <th>Produk</th>
                                     <th>Toko</th>
                                     <th>Harga</th>
@@ -59,99 +60,102 @@
     <!-- Tambahkan JavaScript Responsif DataTables -->
     <script src="https://cdn.datatables.net/responsive/2.5.0/js/dataTables.responsive.min.js"></script>
     <script>
-        // // cek width untuk menentukan tipe button pada datatable
-        // function getWindowWidth() {
-        //     return window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
-        // }
+        // cek width untuk menentukan tipe button pada datatable
+        function getWindowWidth() {
+            return window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+        }
         
-        // if (getWindowWidth() < 768) {
-        //     $(function() {
-        //         $('#tableProducts').DataTable({
-        //             processing: true,
-        //             serverSide: true,
-        //             ajax: '{{ url("products/data-small") }}',
-        //             responsive: {
-        //                 details: {
-        //                     renderer: function(api, rowIdx, columns) {
-        //                         var data = $.map(columns, function(col, i) {
-        //                             return col.hidden ?
-        //                                 '<tr data-dt-row="' +
-        //                                 col.rowIndex +
-        //                                 '" data-dt-column="' +
-        //                                 col.columnIndex +
-        //                                 '">' +
-        //                                 '<td>' +
-        //                                 col.title +
-        //                                 ':' +
-        //                                 '</td> ' +
-        //                                 '<td>' +
-        //                                 col.data +
-        //                                 '</td>' +
-        //                                 '</tr>' :
-        //                                 '';
-        //                         }).join('');
+        if (getWindowWidth() < 768) {
+            $(function() {
+                $('#tableTransactions').DataTable({
+                    processing: true,
+                    serverSide: true,
+                    ajax: '{{ route('data.transaction-small') }}',
+                    responsive: {
+                        details: {
+                            renderer: function(api, rowIdx, columns) {
+                                var data = $.map(columns, function(col, i) {
+                                    return col.hidden ?
+                                        '<tr data-dt-row="' +
+                                        col.rowIndex +
+                                        '" data-dt-column="' +
+                                        col.columnIndex +
+                                        '">' +
+                                        '<td>' +
+                                        col.title +
+                                        ':' +
+                                        '</td> ' +
+                                        '<td>' +
+                                        col.data +
+                                        '</td>' +
+                                        '</tr>' :
+                                        '';
+                                }).join('');
 
-        //                         return data ? $('<table/>').append(data) : false;
-        //                     }
-        //                 }
-        //             },
-        //             columns: [{
-        //                     data: 'DT_RowIndex',
-        //                     orderable: false,
-        //                     searchable: true
-        //                 }, {
-        //                     data: 'name'
-        //                 },
-        //                 {
-        //                     data: 'action'
-        //                 }
-        //             ]
-        //         })
-        //     })
-        // } else {
-        //     $(function() {
-        //         $('#tableProducts').DataTable({
-        //             processing: true,
-        //             serverSide: true,
-        //             ajax: '{{ url("places/data-big") }}',
-        //             responsive: {
-        //                 details: {
-        //                     renderer: function(api, rowIdx, columns) {
-        //                         var data = $.map(columns, function(col, i) {
-        //                             return col.hidden ?
-        //                                 '<tr data-dt-row="' +
-        //                                 col.rowIndex +
-        //                                 '" data-dt-column="' +
-        //                                 col.columnIndex +
-        //                                 '">' +
-        //                                 '<td>' +
-        //                                 col.title +
-        //                                 ':' +
-        //                                 '</td> ' +
-        //                                 '<td>' +
-        //                                 col.data +
-        //                                 '</td>' +
-        //                                 '</tr>' :
-        //                                 '';
-        //                         }).join('');
+                                return data ? $('<table/>').append(data) : false;
+                            }
+                        }
+                    },
+                    columns: [{
+                            data: 'product.code'
+                        }, {
+                            data: 'product.name'
+                        }, {
+                            data: 'shop.name'
+                        }, {
+                            data: 'price'
+                        }, {
+                            data: 'action'
+                        }
+                    ]
+                })
+            })
+        } else {
+            $(function() {
+                $('#tableTransactions').DataTable({
+                    processing: true,
+                    serverSide: true,
+                    ajax: '{{ route('data.transaction-big') }}',
+                    responsive: {
+                        details: {
+                            renderer: function(api, rowIdx, columns) {
+                                var data = $.map(columns, function(col, i) {
+                                    return col.hidden ?
+                                        '<tr data-dt-row="' +
+                                        col.rowIndex +
+                                        '" data-dt-column="' +
+                                        col.columnIndex +
+                                        '">' +
+                                        '<td>' +
+                                        col.title +
+                                        ':' +
+                                        '</td> ' +
+                                        '<td>' +
+                                        col.data +
+                                        '</td>' +
+                                        '</tr>' :
+                                        '';
+                                }).join('');
 
-        //                         return data ? $('<table/>').append(data) : false;
-        //                     }
-        //                 }
-        //             },
-        //             columns: [{
-        //                     data: 'DT_RowIndex',
-        //                     orderable: false,
-        //                     searchable: true
-        //                 }, {
-        //                     data: 'name'
-        //                 },
-        //                 {
-        //                     data: 'action'
-        //                 }
-        //             ]
-        //         })
-        //     })
-        // }
+                                return data ? $('<table/>').append(data) : false;
+                            }
+                        }
+                    },
+                    columns: [{
+                            data: 'product.code'
+                        }, {
+                            data: 'product.name'
+                        }, {
+                            data: 'shop.name'
+                        },{
+                            data: 'price'
+                        },  
+                        {
+                            data: 'action'
+                        }
+                    ]
+                })
+            })
+        }
     </script>
 @endpush

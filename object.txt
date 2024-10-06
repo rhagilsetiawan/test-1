@@ -1,0 +1,218 @@
+object(Illuminate\Support\Collection)#1321 (2) {
+	["items":protected]=> array(3) {
+	[0]=> array(4) {
+		["id"]=> int(1) 
+		["prod_name"]=> string(14) "New Orleans ml" 
+		["shop_name"]=> string(5) "toko1" 
+		["price"]=> int(3000) 
+	}
+	[1]=> array(4) {
+		["id"]=> int(2) 
+		["prod_name"]=> string(14) "New Orleans ml" 
+		["shop_name"]=> string(5) "toko2" 
+		["price"]=> int(2000) 
+	}
+	[2]=> array(4) {
+		["id"]=> int(3) 
+		["prod_name"]=> string(10) "Aqua 100ml" 
+		["shop_name"]=> string(5) "toko2" 
+		["price"]=> int(2000) 
+	}
+}
+	["escapeWhenCastingToString":protected]=> bool(false) 
+	
+}Type of transactions: object
+
+
+object(Illuminate\Database\Eloquent\Collection)#1315 (2) {
+	["items":protected]=> array(3) {
+	[0]=> object(App\Models\Product)#1317 (30) {
+	["connection":protected]=> string(5) "mysql" 
+	["table":protected]=> string(8) "products" 
+	["primaryKey":protected]=> string(2) "id" 
+	["keyType":protected]=> string(3) "int" 
+	["incrementing"]=> bool(true) 
+	["with":protected]=> array(0) {
+	}
+	["withCount":protected]=> array(0) {
+	}
+	["preventsLazyLoading"]=> bool(false) 
+	["perPage":protected]=> int(15) 
+	["exists"]=> bool(true) 
+	["wasRecentlyCreated"]=> bool(false) 
+	["escapeWhenCastingToString":protected]=> bool(false) 
+	["attributes":protected]=> array(5) {
+		["id"]=> int(1) 
+		["code"]=> string(13) "1234567890123" 
+		["name"]=> string(14) "New Orleans ml" 
+		["created_at"]=> string(19) "2024-10-06 14:16:51" 
+		["updated_at"]=> string(19) "2024-10-06 14:16:51" 
+	}
+	["original":protected]=> array(5) {
+		["id"]=> int(1) 
+		["code"]=> string(13) "1234567890123" 
+		["name"]=> string(14) "New Orleans ml" 
+		["created_at"]=> string(19) "2024-10-06 14:16:51" 
+		["updated_at"]=> string(19) "2024-10-06 14:16:51" 
+	}
+	["changes":protected]=> array(0) {
+	}
+	["casts":protected]=> array(0) {
+	}
+	["classCastCache":protected]=> array(0) {
+	}
+	["attributeCastCache":protected]=> array(0) {
+	}
+	["dateFormat":protected]=> NULL 
+	["appends":protected]=> array(0) {
+	}
+	["dispatchesEvents":protected]=> array(0) {
+	}
+	["observables":protected]=> array(0) {
+	}
+	["relations":protected]=> array(0) {
+	}
+	["touches":protected]=> array(0) {
+	}
+	["timestamps"]=> bool(true) 
+	["usesUniqueIds"]=> bool(false) 
+	["hidden":protected]=> array(0) {
+	}
+	["visible":protected]=> array(0) {
+	}
+	["fillable":protected]=> array(2) {
+		[0]=> string(2) "id" 
+		[1]=> string(4) "name" 
+	}
+	["guarded":protected]=> array(1) {
+		[0]=> string(1) "*" 
+	}
+}
+	[1]=> object(App\Models\Product)#1318 (30) {
+	["connection":protected]=> string(5) "mysql" 
+	["table":protected]=> string(8) "products" 
+	["primaryKey":protected]=> string(2) "id" 
+	["keyType":protected]=> string(3) "int" 
+	["incrementing"]=> bool(true) 
+	["with":protected]=> array(0) {
+	}
+	["withCount":protected]=> array(0) {
+	}
+	["preventsLazyLoading"]=> bool(false) 
+	["perPage":protected]=> int(15) 
+	["exists"]=> bool(true) 
+	["wasRecentlyCreated"]=> bool(false) 
+	["escapeWhenCastingToString":protected]=> bool(false) 
+	["attributes":protected]=> array(5) {
+		["id"]=> int(2) 
+		["code"]=> string(13) "1234567890124" 
+		["name"]=> string(10) "Aqua 100ml" 
+		["created_at"]=> string(19) "2024-10-06 14:16:51" 
+		["updated_at"]=> string(19) "2024-10-06 14:16:51" 
+	}
+	["original":protected]=> array(5) {
+		["id"]=> int(2) 
+		["code"]=> string(13) "1234567890124" 
+		["name"]=> string(10) "Aqua 100ml" 
+		["created_at"]=> string(19) "2024-10-06 14:16:51" 
+		["updated_at"]=> string(19) "2024-10-06 14:16:51" 
+	}
+	["changes":protected]=> array(0) {
+	}
+	["casts":protected]=> array(0) {
+	}
+	["classCastCache":protected]=> array(0) {
+	}
+	["attributeCastCache":protected]=> array(0) {
+	}
+	["dateFormat":protected]=> NULL 
+	["appends":protected]=> array(0) {
+	}
+	["dispatchesEvents":protected]=> array(0) {
+	}
+	["observables":protected]=> array(0) {
+	}
+	["relations":protected]=> array(0) {
+	}
+	["touches":protected]=> array(0) {
+	}
+	["timestamps"]=> bool(true) 
+	["usesUniqueIds"]=> bool(false) 
+	["hidden":protected]=> array(0) {
+	}
+	["visible":protected]=> array(0) {
+	}
+	["fillable":protected]=> array(2) {
+		[0]=> string(2) "id" 
+		[1]=> string(4) "name" 
+	}
+	["guarded":protected]=> array(1) {
+		[0]=> string(1) "*" 
+	}
+}
+	[2]=> object(App\Models\Product)#1319 (30) {
+	["connection":protected]=> string(5) "mysql" 
+	["table":protected]=> string(8) "products" 
+	["primaryKey":protected]=> string(2) "id" 
+	["keyType":protected]=> string(3) "int" 
+	["incrementing"]=> bool(true) 
+	["with":protected]=> array(0) {
+	}
+	["withCount":protected]=> array(0) {
+	}
+	["preventsLazyLoading"]=> bool(false) 
+	["perPage":protected]=> int(15) 
+	["exists"]=> bool(true) 
+	["wasRecentlyCreated"]=> bool(false) 
+	["escapeWhenCastingToString":protected]=> bool(false) 
+	["attributes":protected]=> array(5) {
+		["id"]=> int(3) 
+		["code"]=> string(13) "2234567890121" 
+		["name"]=> string(7) "Kit kat" 
+		["created_at"]=> string(19) "2024-10-06 14:16:51" 
+		["updated_at"]=> string(19) "2024-10-06 14:16:51" 
+	}
+	["original":protected]=> array(5) {
+		["id"]=> int(3) 
+		["code"]=> string(13) "2234567890121" 
+		["name"]=> string(7) "Kit kat" 
+		["created_at"]=> string(19) "2024-10-06 14:16:51" 
+		["updated_at"]=> string(19) "2024-10-06 14:16:51" 
+	}
+	["changes":protected]=> array(0) {
+	}
+	["casts":protected]=> array(0) {
+	}
+	["classCastCache":protected]=> array(0) {
+	}
+	["attributeCastCache":protected]=> array(0) {
+	}
+	["dateFormat":protected]=> NULL 
+	["appends":protected]=> array(0) {
+	}
+	["dispatchesEvents":protected]=> array(0) {
+	}
+	["observables":protected]=> array(0) {
+	}
+	["relations":protected]=> array(0) {
+	}
+	["touches":protected]=> array(0) {
+	}
+	["timestamps"]=> bool(true) 
+	["usesUniqueIds"]=> bool(false) 
+	["hidden":protected]=> array(0) {
+	}
+	["visible":protected]=> array(0) {
+	}
+	["fillable":protected]=> array(2) {
+		[0]=> string(2) "id" 
+		[1]=> string(4) "name" 
+	}
+	["guarded":protected]=> array(1) {
+		[0]=> string(1) "*" 
+	}
+}
+}
+	["escapeWhenCastingToString":protected]=> bool(false) 
+	
+}Type of transactions: object

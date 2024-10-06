@@ -37,7 +37,7 @@
                                     class="form-control @error('email')
                                     is-invalid
                                 @enderror"
-                                    placeholder="example@company.com" name="email" autofocus>
+                                    placeholder="example@company.com" name="email" autofocus value="{{ old('email') }}">
                                 @error('email')
                                     <span class="invalid-feedback">{{ $message }}</span>
                                 @enderror
@@ -61,7 +61,7 @@
                                         class="form-control @error('password')
                                         is-invalid
                                     @enderror"
-                                        name="password">
+                                        name="password" value="{{ old('password') }}">
                                     @error('password')
                                         <span class="invalid-feedback">
                                             {{ $message }}

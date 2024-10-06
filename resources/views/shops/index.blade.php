@@ -13,9 +13,9 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-header d-flex justify-content-between">
-                        <div>Daftar Produk</div>
-                        <a href="{{ route('products.create') }}" class="btn btn-primary btn-sm float-right"><i
-                                class="fa-solid fa-plus"></i> Tambah Produk</a>
+                        <div>Daftar Toko</div>
+                        <a href="{{ route('shops.create') }}" class="btn btn-primary btn-sm float-right"><i
+                                class="fa-solid fa-plus"></i> Tambah Toko</a>
                     </div>
                     <div class="card-body">
                         @if (session('success'))
@@ -29,12 +29,12 @@
                                 {{ session('error') }}
                             </div>
                         @endif
-                        <table class="table table-hovered" id="tableProducts">
+                        <table class="table table-hovered" id="tableShops">
                             <thead>
                                 <tr>
                                     <th>No</th>
-                                    <th>ID</th>
-                                    <th>Nama</th>
+                                    <th>Nama Toko</th>
+                                    <th>Alamat</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
@@ -56,7 +56,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.5/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.5/js/dataTables.bootstrap5.min.js"></script>
-    {{-- <script src="https://cdn.datatables.net/2.1.8/js/dataTables.min.js"></script> --}}
 
     <!-- Tambahkan JavaScript Responsif DataTables -->
     <script src="https://cdn.datatables.net/responsive/2.5.0/js/dataTables.responsive.min.js"></script>
@@ -67,10 +66,10 @@
 
         if (getWindowWidth() < 768) {
             $(function() {
-                $('#tableProducts').DataTable({
+                $('#tableShops').DataTable({
                     processing: true,
                     serverSide: true,
-                    ajax: '{{ route('data.product-small') }}',
+                    ajax: '{{ route('data.shop-small') }}',
                     responsive: {
                         details: {
                             renderer: function(api, rowIdx, columns) {
@@ -101,9 +100,9 @@
                             orderable: false,
                             searchable: true
                         }, {
-                            data: 'id'
-                        }, {
                             data: 'name'
+                        }, {
+                            data: 'address'
                         },
                         {
                             data: 'action'
@@ -113,10 +112,10 @@
             })
         } else {
             $(function() {
-                $('#tableProducts').DataTable({
+                $('#tableShops').DataTable({
                     processing: true,
                     serverSide: true,
-                    ajax: '{{ route('data.product-big') }}',
+                    ajax: '{{ route('data.shop-big') }}',
                     responsive: {
                         details: {
                             renderer: function(api, rowIdx, columns) {
@@ -147,9 +146,9 @@
                             orderable: false,
                             searchable: true
                         }, {
-                            data: 'id'
-                        }, {
                             data: 'name'
+                        }, {
+                            data: 'address'
                         },
                         {
                             data: 'action'

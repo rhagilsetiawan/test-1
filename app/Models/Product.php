@@ -12,18 +12,4 @@ class Product extends Model
      * @var array
      */
     protected $fillable = ['id','name'];
-
-    /**
-     * The data type of the primary key ID.
-     *
-     * @var string
-     */
-    protected $keyType = 'string';
-
-    /**
-     * Indicates if the model should be timestamped.
-     *
-     * @var bool
-     */
-    public $timestamps = false;
 }

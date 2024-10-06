@@ -33,7 +33,7 @@
                             <thead>
                                 <tr>
                                     <th>No</th>
-                                    <th>ID</th>
+                                    <th>Code</th>
                                     <th>Nama</th>
                                     <th>Aksi</th>
                                 </tr>
@@ -56,7 +56,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.5/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.5/js/dataTables.bootstrap5.min.js"></script>
-    {{-- <script src="https://cdn.datatables.net/2.1.8/js/dataTables.min.js"></script> --}}
 
     <!-- Tambahkan JavaScript Responsif DataTables -->
     <script src="https://cdn.datatables.net/responsive/2.5.0/js/dataTables.responsive.min.js"></script>
@@ -101,7 +100,7 @@
                             orderable: false,
                             searchable: true
                         }, {
-                            data: 'id'
+                            data: 'code'
                         }, {
                             data: 'name'
                         },
@@ -147,7 +146,7 @@
                             orderable: false,
                             searchable: true
                         }, {
-                            data: 'id'
+                            data: 'code'
                         }, {
                             data: 'name'
                         },
