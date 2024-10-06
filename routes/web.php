@@ -17,6 +17,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('shops', ShopController::class);
     Route::resource('transactions', TransactionController::class);
 
+    // DIBAWAH INI MERUPAKAN KUMPULAN API
+    Route::get('data/search-loc', [DataController::class, 'index'])->name('data.search-loc');
 
     // 2 tipe meawikili tiap button
     Route::get('data/product-big', [DataController::class, 'productsBig'])->name('data.product-big');

@@ -127,7 +127,7 @@
 
         function fetchShops(map, center) {
             var radius = circle.getRadius();
-            axios.get(`{{ route('products.api') }}/${productID}`)
+            axios.get(`{{ route('data.search-loc') }}/${productID}`)
                 .then(function(response) {
                     var geojsonData = {
                         "type": "FeatureCollection",
