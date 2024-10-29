@@ -23,12 +23,13 @@ class ProductController extends Controller
     {
         return view('products.create');
     }
-
+    
     /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
     {
+        // dd($request);
         $this->validate($request, [
             'code' => 'required|max:13|unique:products',
             'name' => 'required',
