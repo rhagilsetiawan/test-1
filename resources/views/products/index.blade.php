@@ -65,6 +65,7 @@
         }
 
         if (getWindowWidth() < 768) {
+        // if (true) {
             $(function() {
                 $('#tableProducts').DataTable({
                     processing: true,

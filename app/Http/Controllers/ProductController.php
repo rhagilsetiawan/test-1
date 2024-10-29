@@ -12,6 +12,7 @@ class ProductController extends Controller
      */
     public function index()
     {
+        // dd("n");
         return view('products.index');
     }
 

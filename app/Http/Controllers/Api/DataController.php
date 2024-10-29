@@ -56,9 +56,9 @@ class DataController extends Controller
     {
         $products = Product::latest()->get();
 
-        var_dump($products);
-        echo "Type of transactions: " . gettype($products); // This will show the type of the variable
-        exit();
+        // var_dump($products);
+        // echo "Type of transactions: " . gettype($products); // This will show the type of the variable
+        // exit();
 
         return datatables()->of($products)
             ->addColumn('action', 'products.components.button-big')
